@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [pokedex, setPokedex] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=10000")
@@ -12,8 +13,9 @@ function App() {
       .then((res) => {
         const { results } = res;
         setPokedex(results);
+        setIsLoading(false)
       });
-  });
+  }, []);
 
   return <div className="App"></div>;
 }
