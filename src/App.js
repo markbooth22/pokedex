@@ -4,8 +4,11 @@ import "./App.css";
 function App() {
   const [pokedex, setPokedex] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setError(null);
+    setIsLoading(true);
     fetch("https://pokeapi.co/api/v2/pokemon?limit=10000")
       .then((res) => {
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
@@ -13,7 +16,11 @@ function App() {
       .then((res) => {
         const { results } = res;
         setPokedex(results);
-        setIsLoading(false)
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setError(e);
+        setIsLoading(false);
       });
   }, []);
 
