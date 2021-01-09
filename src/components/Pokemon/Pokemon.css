@@ -1,0 +1,13 @@
+.Pokemon {
+  display: inline-block;
+}
+
+h1 {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 60px;
+}
+
+img {
+  width: 200px;
+}
