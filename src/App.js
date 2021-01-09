@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "./components/Entry/Entry"
 
 function App() {
   const [pokedex, setPokedex] = useState([]);
@@ -11,6 +12,7 @@ function App() {
     setIsLoading(true);
     fetch("https://pokeapi.co/api/v2/pokemon?limit=10000")
       .then((res) => {
+        console.log("remove me")
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
       })
       .then((res) => {
@@ -24,7 +26,9 @@ function App() {
       });
   }, []);
 
-  return <div className="App"></div>;
+  return <div className="App">
+    <Entry /> 
+  </div>;
 }
 
 export default App;
