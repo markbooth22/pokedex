@@ -12,7 +12,6 @@ function App() {
     setIsLoading(true);
     fetch("https://pokeapi.co/api/v2/pokemon?limit=10000")
       .then((res) => {
-        console.log("remove me")
         return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
       })
       .then((res) => {
