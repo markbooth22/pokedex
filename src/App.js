@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import "./components/Entry/Entry"
+import Entry from "./components/Entry/Entry";
 
 function App() {
   const [pokedex, setPokedex] = useState([]);
@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return <div className="App">
-    <Entry /> 
+    <Entry pokedex={pokedex} /> 
   </div>;
 }
 
