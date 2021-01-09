@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Entry from "./components/Entry/Entry";
+import PokemonPage from "./pages/PokemonPage"
 
 function App() {
   const [pokedex, setPokedex] = useState([]);
@@ -26,6 +27,7 @@ function App() {
   }, []);
 
   return <div className="App">
+    <PokemonPage />
     <Entry pokedex={pokedex} /> 
   </div>;
 }
